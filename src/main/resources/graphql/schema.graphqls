@@ -1,0 +1,52 @@
+type Query {
+    getOverview: DashboardOverview!
+    getCategorySummary: [CategorySummary!]!
+    getRecentActivity(limit: Int): [FinancialRecord!]!
+    getMonthlyTrends: [MonthlyTrend!]!
+    getWeeklyTrends(year: Int, month: Int): [WeeklyTrend!]!
+}
+
+type DashboardOverview {
+    totalIncome: Float!
+    totalExpense: Float!
+    netBalance: Float!
+    totalRecords: Int!
+    incomeCount: Int!
+    expenseCount: Int!
+}
+
+type CategorySummary {
+    category: String!
+    totalIncome: Float!
+    totalExpense: Float!
+    net: Float!
+}
+
+type FinancialRecord {
+    id: ID!
+    amount: Float!
+    type: String!
+    category: String!
+    date: String!
+    notes: String
+    createdByEmail: String!
+    createdByName: String!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type MonthlyTrend {
+    year: Int!
+    month: Int!
+    monthName: String!
+    totalIncome: Float!
+    totalExpense: Float!
+    net: Float!
+}
+
+type WeeklyTrend {
+    weekNumber: Int!
+    totalIncome: Float!
+    totalExpense: Float!
+    net: Float!
+}
