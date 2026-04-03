@@ -64,4 +64,3 @@ By default, the `DELETE /records/{id}` acts as a traditional hard wipe against t
 
 **3. In-Memory Rate Limiting**
 The app utilizes Bucket4j for a highly scalable `ConcurrentHashMap` in-memory setup blocking users attempting to spike more than 30 HTTP queries per minute. In a horizontal multi-server infrastructure, we'd trade off this in-memory HashMap approach and switch to a centralized Redis architecture map using standard Lua scripts so limits are accurately persisted uniformly.
-# Zorvyn-Backend-Assignment
